@@ -13,6 +13,7 @@ docker-compose down
 ports list:
 
 | project | service | port(s) |
+| ------- | ------- | ------- |
 | twitter-clone | twitter-search (elasticsearch) | 9200 |
 | twitter-clone | twitter-app (flask) | 5000 |
 | site-clones | site-nginx (nginx) | 80 |
