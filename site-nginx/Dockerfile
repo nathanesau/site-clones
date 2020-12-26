@@ -1,7 +1,10 @@
 FROM nginx:latest
 
+# html files
+COPY index.html /usr/share/nginx/html/index.html
+
 # copy configuration files to the container
-COPY twitter-app /etc/nginx/conf.d/default.conf
+COPY default.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 80
 
