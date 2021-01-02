@@ -53,7 +53,7 @@ services:
     environment:
       - PASTEBIN_API_URL=http://127.0.0.1:5001/pastebin-clone/api
     depends_on:
-      - pastebin_app
+      - pastebin-app
   site-nginx:
     build: site-nginx
     image: nathanesau/site-clones:site-nginx
