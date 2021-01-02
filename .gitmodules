@@ -1,3 +1,6 @@
 [submodule "twitter-clone"]
 	path = twitter-clone
 	url = https://github.com/nathanesau/twitter-clone
+[submodule "pastebin-clone"]
+	path = pastebin-clone
+	url = https://github.com/nathanesau/pastebin-clone
