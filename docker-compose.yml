@@ -34,6 +34,26 @@ services:
       - ELASTICSEARCH_URL=http://127.0.0.1:9200/
     depends_on:
       - twitter-search
+  pastebin-app:
+    image: nathanesau/pastebin-clone:pastebin-app
+    container_name: pastebin-app
+    restart: always
+    volumes:
+      - data03:/data
+    ports:
+      - 5001:5001
+    network_mode: host
+    environment:
+      - SQLALCHEMY_DATABASE_URI=sqlite:////data/app.db
+  pastebin-bgtasks:
+    image: nathanesau/pastebin-clone:pastebin-bgtasks
+    container_name: pastebin-bgtasks
+    restart: always
+    network_mode: host
+    environment:
+      - PASTEBIN_API_URL=http://127.0.0.1:5001/pastebin-clone/api
+    depends_on:
+      - pastebin_app
   site-nginx:
     build: site-nginx
     image: nathanesau/site-clones:site-nginx
@@ -44,8 +64,11 @@ services:
     network_mode: host
     depends_on: 
       - twitter-app
+      - pastebin-app
 volumes:
   data01:
     driver: local
   data02:
+    driver: local
+  data03:
     driver: local
